@@ -96,8 +96,11 @@ public class Employee {
     }
 
     
-    public final void setSsn(String ssn) {
-        
+    public final void setSsn(String ssn) throws IllegalArgumentException{
+        if (ssn == null || ssn.length() < 9 || ssn.length() > 9)
+        {
+            throw new IllegalArgumentException("Sorry, enter a valid SSN without dashes.");
+        }
         this.ssn = ssn;
     }
 
