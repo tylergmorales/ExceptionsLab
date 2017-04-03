@@ -19,17 +19,17 @@ public class NameService {
      * fewer than two parts
      */
     public String extractLastName(String fullName) throws IllegalArgumentException {
+        
         String lastName = null;
         
         String[] nameParts = fullName.split(" ");
+        lastName = nameParts[1];
+        
         if(nameParts.length < 2)
         {
             throw new IllegalArgumentException("Please enter a first name and a last name.");
         }
-        lastName = nameParts[1];
-       
-        
-        return lastName;
+        return nameParts[1];
     }
     
 
