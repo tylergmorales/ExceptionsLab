@@ -18,12 +18,24 @@ public class NameService {
      * @throws YourCustomExceptionName if fullName is null or empty or has
      * fewer than two parts
      */
-    public String extractLastName(String fullName) {
+    public String extractLastName(String fullName) throws IllegalArgumentException, ArrayIndexOutOfBoundsException {
+        
+        if(fullName == null)
+        {
+            throw new IllegalArgumentException("Do not leave input blank.");
+        }
         String lastName = null;
         
-        // put your code here
+        String[] nameParts = fullName.split(" ");
+        if(nameParts.length < 2)
+        {
+            throw new ArrayIndexOutOfBoundsException("Please enter a first name and a last name.");
+        }
+        lastName = nameParts[1];
         
-        return lastName;
+
+        return nameParts[1];
     }
-    
 }
+    
+
